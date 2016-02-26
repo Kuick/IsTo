@@ -1,21 +1,23 @@
 # IsTo
-Any type or object checking and conversion extension methods.
+### Any type or object checking and conversion extension methods.
 
 ## Features
-#### Is
+### Is
 Checking any type or object inherits from any class or implemented by any interface.
-* `value.Is<T>()`<br>
+
+1. `value.Is<T>()`<br>
     From Type or Object to check by Generic. 
-* `value.Is(Type type)`<br>
+2. `value.Is(Type type)`<br>
     From Type or Object to check by Type. 
 
-#### To
+### To
 Any type of object convert to any type.
-* `value.To<T>()`<br>
+
+1. `value.To<T>()`<br>
     From Type or Object convert to any type by Generic. 
-* `value.TryTo<T>(out T result)`<br>
+2. `value.TryTo<T>(out T result)`<br>
     From Type or Object try to convert to any type by Generic. 
-* `value.To(Type type)`<br>
+3. `value.To(Type type)`<br>
     From Type or Object convert to any type by Type. 
 
 ## Installation
@@ -31,7 +33,7 @@ PM> Install-Package IsTo.StrongName
 ## How to use
 After installed this package, add `using IsTo;` on your source code and enjoy the convenience from it.
 
-#### Is
+### Is
 **value.Is&lt;T&gt;()** Check by Generic
 ```C#
 // 1. from Type
@@ -55,7 +57,7 @@ value.Is(typeof(Int32)); // true
 ```
 
 
-#### To
+### To
 **value.To&lt;T&gt;()**
 ```C#
 ```
