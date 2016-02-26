@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props')" />
+  <Import Project="..\packages\xunit.core.2.1.0\build\portable-net45+win8+wp8+wpa81\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.1.0\build\portable-net45+win8+wp8+wpa81\xunit.core.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CB379D7-1032-439E-9EC2-DAB90174784F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IsTo.Tests</RootNamespace>
+    <AssemblyName>IsTo.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.assert.2.1.0\lib\portable-net45+win8+wp8+wpa81\xunit.assert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.1.0\lib\portable-net45+win8+wp8+wpa81\xunit.core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Is\IsOfGeneric.cs" />
+    <Compile Include="Is\IsOfType.cs" />
+    <Compile Include="Misc\Enum\Animal.cs" />
+    <Compile Include="Misc\Interface\ITest11.cs" />
+    <Compile Include="Misc\Interface\ITest12.cs" />
+    <Compile Include="Misc\Interface\ITest21.cs" />
+    <Compile Include="Misc\Interface\ITest22.cs" />
+    <Compile Include="Misc\Test11.cs" />
+    <Compile Include="Misc\Test12.cs" />
+    <Compile Include="Misc\Test13.cs" />
+    <Compile Include="Misc\Test21.cs" />
+    <Compile Include="Misc\Test22.cs" />
+    <Compile Include="Misc\Test23.cs" />
+    <Compile Include="Misc\TestHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="To\ToOfGenericToArray.cs" />
+    <Compile Include="To\ToOfGenericToBoolean.cs" />
+    <Compile Include="To\ToOfGenericToByte.cs" />
+    <Compile Include="To\ToOfGenericToChar.cs" />
+    <Compile Include="To\ToOfGenericToClass.cs" />
+    <Compile Include="To\ToOfGenericToColor.cs" />
+    <Compile Include="To\ToOfGenericToDateTime.cs" />
+    <Compile Include="To\ToOfGenericToDecimal.cs" />
+    <Compile Include="To\ToOfGenericToDouble.cs" />
+    <Compile Include="To\ToOfGenericToEnum.cs" />
+    <Compile Include="To\ToOfGenericToInt16.cs" />
+    <Compile Include="To\ToOfGenericToInt32.cs" />
+    <Compile Include="To\ToOfGenericToInt64.cs" />
+    <Compile Include="To\ToOfGenericToSByte.cs" />
+    <Compile Include="To\ToOfGenericToSingle.cs" />
+    <Compile Include="To\ToOfGenericToStream.cs" />
+    <Compile Include="To\ToOfGenericToString.cs" />
+    <Compile Include="To\ToOfGenericToUInt16.cs" />
+    <Compile Include="To\ToOfGenericToUInt32.cs" />
+    <Compile Include="To\ToOfGenericToUInt64.cs" />
+    <Compile Include="To\ToOfTypeToArray.cs" />
+    <Compile Include="To\ToOfTypeToBoolean.cs" />
+    <Compile Include="To\ToOfTypeToByte.cs" />
+    <Compile Include="To\ToOfTypeToChar.cs" />
+    <Compile Include="To\ToOfTypeToClass.cs" />
+    <Compile Include="To\ToOfTypeToColor.cs" />
+    <Compile Include="To\ToOfTypeToDateTime.cs" />
+    <Compile Include="To\ToOfTypeToDecimal.cs" />
+    <Compile Include="To\ToOfTypeToDouble.cs" />
+    <Compile Include="To\ToOfTypeToEnum.cs" />
+    <Compile Include="To\ToOfTypeToInt16.cs" />
+    <Compile Include="To\ToOfTypeToInt32.cs" />
+    <Compile Include="To\ToOfTypeToInt64.cs" />
+    <Compile Include="To\ToOfTypeToSByte.cs" />
+    <Compile Include="To\ToOfTypeToSingle.cs" />
+    <Compile Include="To\ToOfTypeToStream.cs" />
+    <Compile Include="To\ToOfTypeToString.cs" />
+    <Compile Include="To\ToOfTypeToUInt16.cs" />
+    <Compile Include="To\ToOfTypeToUInt32.cs" />
+    <Compile Include="To\ToOfTypeToUInt64.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IsTo\IsTo.csproj">
+      <Project>{7002ad91-b446-4c34-8dc0-fae0319dd9a4}</Project>
+      <Name>IsTo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\xunit.core.2.1.0\build\portable-net45+win8+wp8+wpa81\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.1.0\build\portable-net45+win8+wp8+wpa81\xunit.core.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props'))" />
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
