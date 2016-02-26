@@ -1,14 +1,37 @@
 # IsTo
 Any type or object checking and conversion extension methods.
 
-## Is
+## Features
+#### Is
 Checking any type or object inherits from any class or implemented by any interface.
+* `value.Is<T>()`<br>
+    From Type or Object to check by Generic. 
+* `value.Is(Type type)`<br>
+    From Type or Object to check by Type. 
 
-```C#
-value.Is<T>()
-value.Is(Type type)
+#### To
+Any type of object convert to any type.
+* `value.To<T>()`<br>
+    From Type or Object convert to any type by Generic. 
+* `value.TryTo<T>(out T result)`<br>
+    From Type or Object try to convert to any type by Generic. 
+* `value.To(Type type)`<br>
+    From Type or Object convert to any type by Type. 
+
+## Installation
+IsTo can be installed via the nuget UI (as [IsTo](https://www.nuget.org/packages/IsTo/)), or via the nuget package manager console:
+```
+PM> Install-Package IsTo
+```
+If you require a strong-named package (because your project is strong-named), then you may wish to use instead:
+```
+PM> Install-Package IsTo.StrongName
 ```
 
+## How to use
+After installed this package, add `using IsTo;` on your source code and enjoy the convenience from it.
+
+#### Is
 **value.Is&lt;T&gt;()** Check by Generic
 ```C#
 // 1. from Type
@@ -19,7 +42,6 @@ value.Is<Int32>(); // true
 var value = 123;
 value.Is<Int32>(); // true
 ```
-
 
 **value.Is(Type type)** Check by Type
 ```C#
@@ -33,24 +55,18 @@ value.Is(typeof(Int32)); // true
 ```
 
 
-## To
-Any type of object convert to any type.
-
+#### To
+**value.To&lt;T&gt;()**
 ```C#
-value.To<T>()
-value.TryTo<T>(out T result)
-value.To(Type type)
 ```
 
-**value.To<T>()**
-
-
-**value.TryTo<T>(out T result)**
-
+**value.TryTo&lt;T&gt;(out T result)**
+```C#
+```
 
 **value.To(Type type)**
-
-
+```C#
+```
 
 ## License
 * __[Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)__
