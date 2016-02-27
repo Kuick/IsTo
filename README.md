@@ -1,5 +1,5 @@
 # IsTo
-### Any type or object checking and conversion extension methods.
+### Any type or object checking and conversion extension.
 
 ## Features
 ### Is
@@ -14,11 +14,11 @@ Checking any type or object inherits from any class or implemented by any interf
 Any type of object convert to any type.
 
 1. `value.To<T>()`<br>
-    From Type or Object convert to any type by Generic. 
+    From any type of Object convert to any type by Generic. 
 2. `value.TryTo<T>(out T result)`<br>
-    From Type or Object try to convert to any type by Generic. 
+    From any type of Object try to convert to any type by Generic. 
 3. `value.To(Type type)`<br>
-    From Type or Object convert to any type by Type. 
+    From any type of Object convert to any type by Type. 
 
 ## Installation
 IsTo can be installed via the nuget UI (as [IsTo](https://www.nuget.org/packages/IsTo/)), or via the nuget package manager console:
@@ -58,15 +58,15 @@ value.Is(typeof(Int32)); // true
 
 
 ### To
-**value.To&lt;T&gt;()**
+**value.To&lt;T&gt;()** Convert by Generic
 ```C#
 ```
 
-**value.TryTo&lt;T&gt;(out T result)**
+**value.TryTo&lt;T&gt;(out T result)** Try Convert by Generic
 ```C#
 ```
 
-**value.To(Type type)**
+**value.To(Type type)** Convert by Type
 ```C#
 ```
 
