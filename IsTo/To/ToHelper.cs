@@ -494,14 +494,20 @@ namespace IsTo
 					}
 				}
 
-				// ToArray
-				var toarrayInfo = genericListType
-					.GetMethods()
-					.FirstOrDefault(x => x.Name == "ToArray");
-				result = toarrayInfo.Invoke(
-					genericList,
-					new object[] { }
-				);
+				if(to.Type.FullName == genericListType.FullName) {
+					// List
+					result = genericList;
+				} else {
+					// ToArray
+					var toarrayInfo = genericListType
+						.GetMethods()
+						.FirstOrDefault(x => x.Name == "ToArray");
+					result = toarrayInfo.Invoke(
+						genericList,
+						new object[] { }
+					);
+				}
+
 				return true;
 
 			} catch(Exception ex) {

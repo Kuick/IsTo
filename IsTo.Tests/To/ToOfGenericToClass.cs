@@ -2,6 +2,9 @@
 // Modified By      YYYY-MM-DD
 // kevinjong        2016-02-11 - Creation
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace IsTo.Tests
@@ -38,5 +41,18 @@ namespace IsTo.Tests
 			Assert.True(expect.Equals(result));
 		}
 
+
+		[Fact]
+		public void ByArrayToList()
+		{
+			var value = new Int32[] { 1, 2 };
+			var result = value.To<List<Int32>>();
+
+			var expect = new List<Int32>();
+			expect.Add(1);
+			expect.Add(2);
+
+			Assert.True(result.SequenceEqual(expect));
+		}
 	}
 }
