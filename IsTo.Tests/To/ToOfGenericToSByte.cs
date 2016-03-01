@@ -90,5 +90,13 @@ namespace IsTo.Tests
 			Assert.True(value.To<SByte>() == expect);
 		}
 
+
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			SByte flag;
+			Assert.False(value.TryTo<SByte>(out flag));
+		}
 	}
 }

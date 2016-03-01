@@ -2,6 +2,7 @@
 // Modified By      YYYY-MM-DD
 // kevinjong        2016-02-11 - Creation
 
+using System;
 using System.Drawing;
 using Xunit;
 
@@ -111,6 +112,15 @@ namespace IsTo.Tests
 		{
 			var c = Color.FromArgb(123, 2, 77);
 			Assert.True(ColorComaparison(c.To<Color>(), c));
+		}
+
+
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Color flag;
+			Assert.False(value.TryTo<Color>(out flag));
 		}
 	}
 }

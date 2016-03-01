@@ -170,5 +170,13 @@ namespace IsTo.Tests
 			TestHelper.StreamComparison(result, strm1);
 		}
 
+
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Stream flag;
+			Assert.True(value.TryTo<Stream>(out flag));
+		}
 	}
 }

@@ -91,5 +91,12 @@ namespace IsTo.Tests
 		}
 
 
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Double flag;
+			Assert.False(value.TryTo<Double>(out flag));
+		}
 	}
 }

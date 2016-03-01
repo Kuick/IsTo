@@ -143,5 +143,12 @@ namespace IsTo.Tests
 			Assert.False(DateTime.Now.TryTo<Int32>(out val));
 		}
 
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Int32 flag;
+			Assert.False(value.TryTo<Int32>(out flag));
+		}
 	}
 }

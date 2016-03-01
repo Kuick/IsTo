@@ -91,5 +91,13 @@ namespace IsTo.Tests
 		}
 
 
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Byte flag;
+			Assert.False(value.TryTo<Byte>(out flag));
+		}
+
 	}
 }

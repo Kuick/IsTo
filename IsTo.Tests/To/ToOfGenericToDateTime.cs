@@ -53,5 +53,20 @@ namespace IsTo.Tests
 			Assert.True(dt.To<DateTime>() == dt);
 		}
 
+		[Theory]
+		[InlineData(true)]
+		[InlineData('A')]
+		[InlineData(100)]
+		[InlineData(100D)]
+		[InlineData(100F)]
+		[InlineData(100U)]
+		[InlineData(100UL)]
+		[InlineData(100L)]
+		public void NotSupport<T>(
+			T value)
+		{
+			DateTime dt;
+			Assert.False(value.TryTo<DateTime>(out dt));
+		}
 	}
 }

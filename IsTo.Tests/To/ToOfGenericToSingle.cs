@@ -89,5 +89,13 @@ namespace IsTo.Tests
 		{
 			Assert.True(value.To<Single>() == expect);
 		}
+
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Single flag;
+			Assert.False(value.TryTo<Single>(out flag));
+		}
 	}
 }

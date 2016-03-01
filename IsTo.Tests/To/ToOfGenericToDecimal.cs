@@ -97,5 +97,13 @@ namespace IsTo.Tests
 			Assert.True(d.To<Decimal>() == d);
 		}
 
+
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Decimal flag;
+			Assert.False(value.TryTo<Decimal>(out flag));
+		}
 	}
 }

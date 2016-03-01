@@ -68,6 +68,12 @@ namespace IsTo.Tests
 			Assert.True(b.To<bool>() == b);
 		}
 
-
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Boolean flag;
+			Assert.False(value.TryTo<Boolean>(out flag));
+		}
 	}
 }

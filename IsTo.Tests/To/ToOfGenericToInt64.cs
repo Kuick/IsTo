@@ -89,5 +89,13 @@ namespace IsTo.Tests
 		{
 			Assert.True(value.To<Int64>() == expect);
 		}
+
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Int64 flag;
+			Assert.False(value.TryTo<Int64>(out flag));
+		}
 	}
 }

@@ -2,6 +2,7 @@
 // Modified By      YYYY-MM-DD
 // kevinjong        2016-02-11 - Creation
 
+using System;
 using Xunit;
 
 namespace IsTo.Tests
@@ -62,5 +63,12 @@ namespace IsTo.Tests
 			Assert.False(value.To<Animal>() == expect);
 		}
 
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Animal flag;
+			Assert.False(value.TryTo<Animal>(out flag));
+		}
 	}
 }

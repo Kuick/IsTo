@@ -67,7 +67,5 @@ namespace IsTo.Tests
 			var b = true;
 			Assert.True(b.To(typeof(bool)).Equals(b));
 		}
-
-
 	}
 }

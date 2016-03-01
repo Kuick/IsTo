@@ -49,5 +49,14 @@ namespace IsTo.Tests
 			char c;
 			Assert.False(123M.TryTo<Char>(out c));
 		}
+
+
+		[Fact]
+		public void FromDateTime()
+		{
+			var value = DateTime.Now;
+			Char flag;
+			Assert.False(value.TryTo<Char>(out flag));
+		}
 	}
 }
