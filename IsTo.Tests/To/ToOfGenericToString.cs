@@ -46,7 +46,7 @@ namespace IsTo.Tests
 		public void ByDateTimeToString2()
 		{
 			var value = new DateTime(2016, 2, 11, 14, 2, 3, 4);
-			var result = value.To<String>(format: "yyyy/MM/dd");
+			var result = value.To<String>("", format: "yyyy/MM/dd");
 			var expect = "2016/02/11";
 			Assert.True(result == expect);
 		}

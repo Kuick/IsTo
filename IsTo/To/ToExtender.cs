@@ -11,11 +11,16 @@ namespace IsTo
 	public static partial class ToExtender
 	{
 		public static T To<T>(
+			this object value)
+		{
+			return value.To<T>(default(T));
+		}
+
+		public static T To<T>(
 			this object value,
-			T airbag = default(T),
+			T airbag,
 			string format = "")
 		{
-
 			T result;
 			if(value.TryTo<T>(
 				out result,
@@ -58,8 +63,16 @@ namespace IsTo
 
 		public static object To(
 			this object value,
+			Type type)
+		{
+			return value.To(type, string.Empty);
+		}
+
+
+		public static object To(
+			this object value,
 			Type type,
-			string format = "")
+			string format)
 		{
 			object result;
 			if(TryTo(value, type, out result, format)) {
