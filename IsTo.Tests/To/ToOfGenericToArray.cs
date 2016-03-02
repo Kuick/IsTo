@@ -3,6 +3,7 @@
 // kevinjong        2016-02-11 - Creation
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -328,6 +329,33 @@ namespace IsTo.Tests
 				new Test11(){Property11 = 2}
 			};
 			Assert.True(expect.SequenceEqual(result));
+		}
+
+		[Fact]
+		public void ByJson()
+		{
+			var value = @"
+[
+	{
+		""Property11"": 123,
+		""Property12"": 456
+	},
+	{
+		""Property11"": 135,
+		""Property12"": 246
+	}
+]";
+			var result = value.To<List<Test12>>();
+			var expect = new List<Test12>();
+			expect.Add(new Test12() {
+				Property11 = 123,
+				Property12 = 456
+			});
+			expect.Add(new Test12() {
+				Property11 = 135,
+				Property12 = 246
+			});
+			Assert.True(result.SequenceEqual(expect));
 		}
 
 

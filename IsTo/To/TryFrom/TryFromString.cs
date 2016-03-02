@@ -5,6 +5,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 
@@ -28,6 +29,22 @@ namespace IsTo
 				case TypeCategory.Array:
 					if(to.IsBytes) {
 						result = UnicodeEncoding.UTF8.GetBytes(value);
+						return true;
+					}
+					var firstElement = to
+						.ElementInfos
+						.FirstOrDefault();
+					if(
+						null != firstElement
+						&&
+						firstElement.Category
+						==
+						TypeCategory.Class) {
+						if(!IsJson(value)) { return false; }
+						result = JsonConvert.DeserializeObject(
+							value,
+							to.Type
+						);
 						return true;
 					}
 					return TryToArray(
