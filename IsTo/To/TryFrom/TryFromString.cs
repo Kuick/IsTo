@@ -6,6 +6,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace IsTo
 {
@@ -94,7 +95,13 @@ namespace IsTo
 					return false;
 
 				case TypeCategory.Class:
-					// TODO: JSON string deserialize
+					if(IsJson(value)) {
+						result = JsonConvert.DeserializeObject(
+							value,
+							to.Type
+						);
+						return true;
+					}
 					return false;
 
 				case TypeCategory.DateTime:

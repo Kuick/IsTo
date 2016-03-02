@@ -54,5 +54,22 @@ namespace IsTo.Tests
 
 			Assert.True(result.SequenceEqual(expect));
 		}
+
+		[Fact]
+		public void ByJson()
+		{
+			var value = @"
+{
+	""Property11"": 123,
+	""Property12"": 456
+}
+";
+			var result = value.To<Test12>();
+			var expect = new Test12() {
+				Property11 = 123,
+				Property12 = 456
+			};
+			Assert.True(result.Equals(expect));
+		}
 	}
 }

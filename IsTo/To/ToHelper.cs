@@ -11,6 +11,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace IsTo
 {
@@ -186,6 +188,27 @@ namespace IsTo
 				IsToConstants.Pattern.Numeric,
 				RegexOptions.Compiled
 			);
+		}
+
+		private static bool IsJson(string json)
+		{
+			json = json.Trim();
+
+			if(
+				(json.StartsWith("{") && json.EndsWith("}"))
+				||
+				(json.StartsWith("[") && json.EndsWith("]"))) {
+				// go on
+			} else {
+				return false;
+			}
+
+			try {
+				var obj = JToken.Parse(json);
+				return true;
+			} catch {
+				return false;
+			}
 		}
 
 		private static object ForceClone(object from, Type type)
