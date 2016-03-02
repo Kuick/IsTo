@@ -18,8 +18,15 @@ namespace IsTo
 
 		public static T To<T>(
 			this object value,
+			T airbag)
+		{
+			return value.To<T>(default(T), "");
+		}
+
+		public static T To<T>(
+			this object value,
 			T airbag,
-			string format = "")
+			string format)
 		{
 			T result;
 			if(value.TryTo<T>(
