@@ -520,11 +520,21 @@ namespace IsTo
 				if(to.Type.FullName == genericListType.FullName) {
 					// List
 					result = genericList;
+				} else if(to.Type.Is<IQueryable>()) {
+					// IQueryable
+					result = ((IList)genericList).AsQueryable();
+				} else if(
+					to.Category == TypeCategory.Interface 
+					&& 
+					to.Type.Is<IList>()) {
+					// IList
+					result = (IList)genericList;
 				} else {
-					// ToArray
+					// Array
 					var toarrayInfo = genericListType
 						.GetMethods()
 						.FirstOrDefault(x => x.Name == "ToArray");
+					if(null == toarrayInfo) { return false; }
 					result = toarrayInfo.Invoke(
 						genericList,
 						new object[] { }

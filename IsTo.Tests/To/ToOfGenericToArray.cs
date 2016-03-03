@@ -332,6 +332,30 @@ namespace IsTo.Tests
 		}
 
 		[Fact]
+		public void ByArrayToIQueryableOfClass()
+		{
+			var classA = new Test22<string, int>() {
+				Property11 = 1,
+				Property21 = 3,
+				Property12 = 5,
+				Property22 = 7
+			};
+			var classB = new Test22<string, int>() {
+				Property11 = 2,
+				Property21 = 4,
+				Property12 = 6,
+				Property22 = 8
+			};
+			var result = new[] { classA, classB }.To<IQueryable<Test11>>();
+
+			var expect = new[] {
+				new Test11(){Property11 = 1},
+				new Test11(){Property11 = 2}
+			};
+			Assert.True(expect.SequenceEqual(result));
+		}
+
+		[Fact]
 		public void ByJson()
 		{
 			var value = @"
