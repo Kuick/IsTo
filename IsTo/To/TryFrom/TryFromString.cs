@@ -112,6 +112,7 @@ namespace IsTo
 					return false;
 
 				case TypeCategory.Class:
+				case TypeCategory.Struct:
 					if(IsJson(value)) {
 						result = JsonConvert.DeserializeObject(
 							value,

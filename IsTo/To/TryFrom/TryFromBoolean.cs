@@ -86,6 +86,7 @@ namespace IsTo
 				case TypeCategory.Enum:
 				case TypeCategory.Interface:
 				case TypeCategory.Class:
+				case TypeCategory.Struct:
 				case TypeCategory.Color:
 				case TypeCategory.DateTime:
 				case TypeCategory.IntPtr:

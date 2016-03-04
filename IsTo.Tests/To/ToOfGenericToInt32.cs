@@ -150,5 +150,18 @@ namespace IsTo.Tests
 			Int32 flag;
 			Assert.False(value.TryTo<Int32>(out flag));
 		}
+
+		[Fact]
+		public void FromDynamic()
+		{
+			dynamic d = new { X = 1, Y = 2 };
+
+			try {
+				var result = d.X.To<Int32>();
+				Assert.True(false);
+			} catch {
+				Assert.True(true);
+			}
+		}
 	}
 }

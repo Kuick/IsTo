@@ -292,6 +292,14 @@ namespace IsTo
 							out result,
 							format
 						);
+					case TypeCategory.Struct:
+						return TryFromStruct(
+							value,
+							from,
+							to,
+							out result,
+							format
+						);
 					case TypeCategory.Null:
 						return false;
 					case TypeCategory.Others:

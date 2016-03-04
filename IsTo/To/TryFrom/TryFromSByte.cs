@@ -98,6 +98,7 @@ namespace IsTo
 
 				case TypeCategory.Interface:
 				case TypeCategory.Class:
+				case TypeCategory.Struct:
 				case TypeCategory.DateTime:
 				case TypeCategory.IntPtr:
 				case TypeCategory.UIntPtr:

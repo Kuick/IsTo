@@ -30,6 +30,7 @@ namespace IsTo
 		UInt64,
 		Single,
 		Double,
+		Struct,
 		Null,
 		Others
 	}

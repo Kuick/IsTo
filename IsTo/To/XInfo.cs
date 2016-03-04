@@ -103,6 +103,7 @@ namespace IsTo
 				//case "Enum":
 				//case "Interface":
 				//case "Class":
+				//case "Struct":
 				//case "Others":
 				default:
 					if(type.IsArray || type.Is<IEnumerable>()) {
@@ -121,6 +122,19 @@ namespace IsTo
 						this.Category = TypeCategory.Class;
 						break;
 					}
+					if(
+						type.IsValueType
+						&&
+						!type.IsPrimitive
+						&&
+						!type.IsClass
+						&&
+						!type.IsEnum
+						) {
+						this.Category = TypeCategory.Struct;
+						break;
+					}
+
 					this.Category = TypeCategory.Others;
 					break;
 			}

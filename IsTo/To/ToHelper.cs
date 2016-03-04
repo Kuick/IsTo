@@ -211,16 +211,71 @@ namespace IsTo
 			}
 		}
 
+		private static Dictionary<string, object> GetValues(
+			object from)
+		{
+			var dic = new Dictionary<string, object>();
+			if(null == from) { return dic; }
+
+			var type = from.GetType();
+
+			var fields = type.GetFields();
+			foreach(var field in fields) {
+				var name = field.Name;
+				var value = GetValue(field, from);
+				dic.Add(name, value);
+			}
+
+			var properties = type.GetProperties();
+			foreach(var property in properties) {
+				var name = property.Name;
+				var value = GetValue(property, from);
+				dic.Add(name, value);
+			}
+
+			return dic;
+		}
+
+		private static object SetValues(
+			Dictionary<string, object> dic,
+			Type type)
+		{
+			if(null == type) { return null; }
+			var to = default(object);
+			try {
+				to = Activator.CreateInstance(type);
+			} catch {
+				return null;
+			}
+
+			// Field
+			var fields = type.GetFields();
+			foreach(var field in fields) {
+				if(!dic.ContainsKey(field.Name)) {
+					continue;
+				}
+				var value = dic[field.Name];
+				SetValue(to, field, value);
+			}
+
+			// Property
+			var properties = type.GetProperties();
+			foreach(var property in properties) {
+				if(!dic.ContainsKey(property.Name)) {
+					continue;
+				}
+				var value = dic[property.Name];
+				SetValue(to, property, value);
+			}
+
+			return to;
+		}
+
 		private static object ForceClone(object from, Type type)
 		{
 			var to = default(object);
 			try {
-				var constructor = type.GetConstructor(new Type[0]);
-				if(null == constructor) {
-					return null;
-				} else {
-					to = constructor.Invoke(new object[0]);
-				}
+				to = Activator.CreateInstance(type);
 			} catch {
 				return null;
 			}
@@ -398,6 +453,8 @@ namespace IsTo
 					return default(float);
 				case TypeCategory.Double:
 					return default(double);
+				case TypeCategory.Struct:
+					return null;
 				case TypeCategory.Null:
 					return null;
 				case TypeCategory.Others:
@@ -524,8 +581,8 @@ namespace IsTo
 					// IQueryable
 					result = ((IList)genericList).AsQueryable();
 				} else if(
-					to.Category == TypeCategory.Interface 
-					&& 
+					to.Category == TypeCategory.Interface
+					&&
 					to.Type.Is<IList>()) {
 					// IList
 					result = (IList)genericList;

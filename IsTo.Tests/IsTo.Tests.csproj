@@ -65,6 +65,7 @@
     <Compile Include="Misc\Interface\ITest12.cs" />
     <Compile Include="Misc\Interface\ITest21.cs" />
     <Compile Include="Misc\Interface\ITest22.cs" />
+    <Compile Include="Misc\Struct\TestStruct.cs" />
     <Compile Include="Misc\Test11.cs" />
     <Compile Include="Misc\Test12.cs" />
     <Compile Include="Misc\Test13.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="To\ToOfGenericToSingle.cs" />
     <Compile Include="To\ToOfGenericToStream.cs" />
     <Compile Include="To\ToOfGenericToString.cs" />
+    <Compile Include="To\ToOfGenericToStruct.cs" />
     <Compile Include="To\ToOfGenericToUInt16.cs" />
     <Compile Include="To\ToOfGenericToUInt32.cs" />
     <Compile Include="To\ToOfGenericToUInt64.cs" />

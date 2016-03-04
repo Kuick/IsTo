@@ -52,6 +52,7 @@
     <Compile Include="To\ToExtender.cs" />
     <Compile Include="To\TryFrom\TryFromInterface.cs" />
     <Compile Include="To\TryFrom\TryFromInt64.cs" />
+    <Compile Include="To\TryFrom\TryFromStruct.cs" />
     <Compile Include="To\TryFrom\TryFromUInt64.cs" />
     <Compile Include="To\TryFrom\TryFromSingle.cs" />
     <Compile Include="To\TryFrom\TryFromUIntPtr.cs" />

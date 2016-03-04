@@ -67,6 +67,7 @@ namespace IsTo
 				case TypeCategory.Color:
 				case TypeCategory.Interface:
 				case TypeCategory.Class:
+				case TypeCategory.Struct:
 				case TypeCategory.IntPtr:
 				case TypeCategory.UIntPtr:
 				case TypeCategory.Null:

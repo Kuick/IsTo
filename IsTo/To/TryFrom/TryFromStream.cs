@@ -32,6 +32,8 @@ namespace IsTo
 
 				case TypeCategory.Enum:
 				case TypeCategory.Color:
+				case TypeCategory.Class:
+				case TypeCategory.Struct:
 				case TypeCategory.String:
 				case TypeCategory.DateTime:
 				case TypeCategory.Decimal:
@@ -60,7 +62,6 @@ namespace IsTo
 					}
 
 				case TypeCategory.Interface:
-				case TypeCategory.Class:
 				case TypeCategory.IntPtr:
 				case TypeCategory.UIntPtr:
 				case TypeCategory.Null:

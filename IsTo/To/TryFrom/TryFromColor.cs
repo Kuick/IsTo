@@ -125,6 +125,7 @@ namespace IsTo
 				case TypeCategory.Boolean:
 				case TypeCategory.Char:
 				case TypeCategory.Class:
+				case TypeCategory.Struct:
 				case TypeCategory.Interface:
 				case TypeCategory.IntPtr:
 				case TypeCategory.UIntPtr:

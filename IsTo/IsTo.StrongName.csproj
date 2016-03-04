@@ -75,6 +75,7 @@
     <Compile Include="To\TryFrom\TryFromSingle.cs" />
     <Compile Include="To\TryFrom\TryFromStream.cs" />
     <Compile Include="To\TryFrom\TryFromString.cs" />
+    <Compile Include="To\TryFrom\TryFromStruct.cs" />
     <Compile Include="To\TryFrom\TryFromUInt16.cs" />
     <Compile Include="To\TryFrom\TryFromUInt32.cs" />
     <Compile Include="To\TryFrom\TryFromUInt64.cs" />

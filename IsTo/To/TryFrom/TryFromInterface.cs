@@ -31,6 +31,7 @@ namespace IsTo
 
 				case TypeCategory.Enum:
 				case TypeCategory.Class:
+				case TypeCategory.Struct:
 				case TypeCategory.Stream:
 				case TypeCategory.Color:
 				case TypeCategory.String:

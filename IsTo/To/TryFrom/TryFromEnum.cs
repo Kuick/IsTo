@@ -153,6 +153,7 @@ namespace IsTo
 				case TypeCategory.UIntPtr:
 				case TypeCategory.Interface:
 				case TypeCategory.Class:
+				case TypeCategory.Struct:
 				case TypeCategory.Color:
 				case TypeCategory.DateTime:
 				case TypeCategory.Boolean:

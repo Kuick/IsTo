@@ -71,5 +71,22 @@ namespace IsTo.Tests
 			};
 			Assert.True(result.Equals(expect));
 		}
+
+		[Fact]
+		public void ByStruct()
+		{
+			var value = new TestStruct {
+				Property11 = 1,
+				Property12 = 2,
+				Property13 = 3
+			};
+			var result = value.To<Test13>();
+			var expect = new Test13() {
+				Property11 = 1,
+				Property12 = 2,
+				Property13 = 3
+			};
+			Assert.True(result.Equals(expect));
+		}
 	}
 }

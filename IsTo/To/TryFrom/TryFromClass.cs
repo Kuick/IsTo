@@ -47,13 +47,12 @@ namespace IsTo
 							//
 						}
 					}
-
-					//if(value.Is(to.Type)) {
-					//	result = ForceClone(value, to.Type);
-					//	return true;
-					//}
-
 					result = ForceClone(value, to.Type);
+					return true;
+
+				case TypeCategory.Struct:
+					var dic = GetValues(value);
+					result = SetValues(dic, to.Type);
 					return true;
 
 				case TypeCategory.Enum:
