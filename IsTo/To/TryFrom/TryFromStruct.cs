@@ -1,6 +1,6 @@
 ﻿// Copyright (c) kuicker.org. All rights reserved.
 // Modified By      YYYY-MM-DD
-// kevinjong        2016-03-4 - Creation
+// kevinjong        2016-03-04 - Creation
 
 using System;
 using System.Drawing;
