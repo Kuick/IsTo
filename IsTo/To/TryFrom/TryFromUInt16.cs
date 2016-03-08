@@ -20,6 +20,10 @@ namespace IsTo
 
 			switch(to.Category) {
 				case TypeCategory.Array:
+					if(to.IsBytes) {
+						result = BitConverter.GetBytes(value);
+						return true;
+					}
 					return TryToArray(
 						from,
 						to,

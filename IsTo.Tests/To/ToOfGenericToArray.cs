@@ -399,5 +399,96 @@ namespace IsTo.Tests
 
 			//Assert.True(result.SequenceEqual(expect));
 		}
+
+		[Fact]
+		public void FromBooleanToByteArray()
+		{
+			Boolean value = true;
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void FromCharToByteArray()
+		{
+			Char value = 'A';
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void FromDoubleToByteArray()
+		{
+			Double value = 123;
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void FromSingleToByteArray()
+		{
+			Single value = 123;
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void FromInt32ToByteArray()
+		{
+			Int32 value = 123;
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void FromInt64ToByteArray()
+		{
+			Int64 value = 123;
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void FromInt16ToByteArray()
+		{
+			Int16 value = 123;
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void FromUInt32ToByteArray()
+		{
+			UInt32 value = 123;
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void FromUInt64ToByteArray()
+		{
+			UInt64 value = 123;
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void FromUInt16ToByteArray()
+		{
+			UInt16 value = 123;
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value);
+			Assert.True(result.SequenceEqual(expect));
+		}
+
 	}
 }
