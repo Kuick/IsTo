@@ -3,6 +3,7 @@
 // kevinjong        2016-02-11 - Creation
 
 using System;
+using System.Linq;
 using Xunit;
 
 namespace IsTo.Tests
@@ -33,7 +34,7 @@ namespace IsTo.Tests
 		}
 
 		[Fact]
-		public void ByDateTimeToString1()
+		public void ByDateTime1()
 		{
 			var value = new DateTime(2016, 2, 11, 14, 2, 3, 4);
 			var result = value.To<String>();
@@ -43,7 +44,7 @@ namespace IsTo.Tests
 
 
 		[Fact]
-		public void ByDateTimeToString2()
+		public void ByDateTime2()
 		{
 			var value = new DateTime(2016, 2, 11, 14, 2, 3, 4);
 			var result = value.To<String>("", format: "yyyy/MM/dd");
@@ -54,10 +55,23 @@ namespace IsTo.Tests
 
 
 		[Fact]
-		public void ByStringToString()
+		public void ByString()
 		{
 			var str = "Qwe!23";
 			Assert.True(str.To<String>() == str);
+		}
+
+
+		[Fact]
+		public void ByByteArray()
+		{
+			var expect = "kuicker";
+			var bytes = expect.To<byte[]>();
+
+			var value = bytes;
+			var result = value.To<string>();
+
+			Assert.True(result.SequenceEqual(expect));
 		}
 	}
 }

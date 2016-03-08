@@ -4,6 +4,7 @@
 
 using System;
 using System.Linq;
+using System.Text;
 
 namespace IsTo
 {
@@ -40,7 +41,7 @@ namespace IsTo
 				case TypeCategory.DateTime:
 				case TypeCategory.String:
 					if(from.IsBytes) {
-						var str = BitConverter.ToString(bytes, 0);
+						var str = Encoding.Default.GetString(bytes);
 						return TryFromString(
 							str,
 							XInfo.String.Value,

@@ -33,7 +33,7 @@ namespace IsTo.Tests
 		}
 
 		[Fact]
-		public void ByDateTimeToString1()
+		public void ByDateTime1()
 		{
 			var value = new DateTime(2016, 2, 11, 14, 2, 3, 4);
 			var result = (String)value.To(typeof(String));
@@ -43,7 +43,7 @@ namespace IsTo.Tests
 
 
 		[Fact]
-		public void ByDateTimeToString2()
+		public void ByDateTime2()
 		{
 			var value = new DateTime(2016, 2, 11, 14, 2, 3, 4);
 			var result = (String)value.To(typeof(String), "yyyy/MM/dd");
@@ -54,7 +54,7 @@ namespace IsTo.Tests
 
 
 		[Fact]
-		public void ByStringToString()
+		public void ByString()
 		{
 			var str = "Qwe!23";
 			Assert.True((String)str.To(typeof(String)) == str);
