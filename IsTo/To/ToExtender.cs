@@ -3,6 +3,8 @@
 // kevinjong        2016-02-11 - Creation
 
 using System;
+using System.Collections;
+using System.Linq;
 using System.Drawing;
 using System.IO;
 
@@ -108,13 +110,31 @@ namespace IsTo
 			try {
 				switch(from.Category) {
 					case TypeCategory.Array:
+						object arry = value as Array;
+						if(null == arry) {
+							var toarrayInfo = from
+								.Type
+								.GetMethods()
+								.FirstOrDefault(x =>
+									x.Name == "ToArray"
+								);
+							if(null == toarrayInfo) { return false; }
+							arry = toarrayInfo.Invoke(
+								value,
+								new object[] { }
+							);
+						}
+						if(null == arry) { return false; }
 						return TryFromArray(
-							value as Array,
+							arry as Array,
 							from,
 							to,
 							out result,
 							format
 						);
+
+
+
 					case TypeCategory.Enum:
 						return TryFromEnum(
 							value,
@@ -311,5 +331,7 @@ namespace IsTo
 				return false;
 			}
 		}
+
+		public static object List { get; set; }
 	}
 }

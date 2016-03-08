@@ -3,6 +3,8 @@
 // kevinjong        2016-02-11 - Creation
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace IsTo.Tests
@@ -59,5 +61,45 @@ namespace IsTo.Tests
 			var str = "Qwe!23";
 			Assert.True((String)str.To(typeof(String)) == str);
 		}
+
+
+		[Fact]
+		public void ByByteArray()
+		{
+			var bytes = new byte[] { 
+				107, 117, 105, 99, 107, 101, 114 
+			};
+			var value = bytes;
+			var result = value.To(typeof(String)) as string;
+			var expect = "kuicker";
+
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void ByByteList()
+		{
+			var bytes = new byte[] { 
+				107, 117, 105, 99, 107, 101, 114 
+			};
+			var value = new List<byte>(bytes);
+			var result = value.To(typeof(List<byte>)) as List<byte>;
+			var expect = bytes;
+
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		//[Fact]
+		//public void ByByteQueryable()
+		//{
+		//	var bytes = new byte[] { 
+		//		107, 117, 105, 99, 107, 101, 114 
+		//	};
+		//	var value = new List<byte>(bytes).AsQueryable();
+		//	var result = value.To(typeof(IQueryable<byte>)) as IQueryable<byte>;
+		//	var expect = bytes;
+
+		//	Assert.True(result.SequenceEqual(expect));
+		//}
 	}
 }

@@ -3,6 +3,7 @@
 // kevinjong        2016-02-11 - Creation
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -65,11 +66,38 @@ namespace IsTo.Tests
 		[Fact]
 		public void ByByteArray()
 		{
-			var expect = "kuicker";
-			var bytes = expect.To<byte[]>();
-
+			var bytes = new byte[] { 
+				107, 117, 105, 99, 107, 101, 114 
+			};
 			var value = bytes;
 			var result = value.To<string>();
+			var expect = "kuicker";
+
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void ByByteList()
+		{
+			var bytes = new byte[] { 
+				107, 117, 105, 99, 107, 101, 114 
+			};
+			var value = new List<byte>(bytes);
+			var result = value.To<List<byte>>();
+			var expect = bytes;
+
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
+		public void ByByteQueryable()
+		{
+			var bytes = new byte[] { 
+				107, 117, 105, 99, 107, 101, 114 
+			};
+			var value = new List<byte>(bytes).AsQueryable();
+			var result = value.To<IQueryable<byte>>();
+			var expect = bytes;
 
 			Assert.True(result.SequenceEqual(expect));
 		}
