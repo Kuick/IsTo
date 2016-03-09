@@ -7,6 +7,7 @@ using System.Collections;
 using System.Linq;
 using System.Drawing;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace IsTo
 {
@@ -31,9 +32,7 @@ namespace IsTo
 			string format)
 		{
 			T result;
-			if(value.TryTo<T>(
-				out result,
-				format)) {
+			if(value.TryTo<T>(out result, format)) {
 				return result;
 			} else {
 				return airbag;
@@ -48,6 +47,18 @@ namespace IsTo
 			result = default(T);
 			if(null == value) { return false; }
 
+			var str = value.ToString();
+			if(value.Is<string>() && IsJson(str)) {
+				var t = typeof(T);
+				if(!t.IsPrimitive && !t.Is<byte[]>()) {
+					try {
+						result = JsonConvert
+							.DeserializeObject<T>(str);
+						return true;
+					} catch(Exception ex) { }
+				}
+			}
+
 			if(value.Is<T>()) {
 				try {
 					result = (T)value;
@@ -56,10 +67,7 @@ namespace IsTo
 			}
 
 			object val;
-			if(TryTo(
-				value,
-				typeof(T),
-				out val, format)) {
+			if(TryTo(value, typeof(T), out val, format)) {
 				try {
 					result = (T)val;
 					return true;
@@ -69,14 +77,12 @@ namespace IsTo
 			return false;
 		}
 
-
 		public static object To(
 			this object value,
 			Type type)
 		{
 			return value.To(type, string.Empty);
 		}
-
 
 		public static object To(
 			this object value,
@@ -132,9 +138,6 @@ namespace IsTo
 							out result,
 							format
 						);
-
-
-
 					case TypeCategory.Enum:
 						return TryFromEnum(
 							value,
@@ -159,7 +162,6 @@ namespace IsTo
 							out result,
 							format
 						);
-
 					case TypeCategory.Stream:
 						return TryFromStream(
 							value as Stream,
@@ -313,13 +315,7 @@ namespace IsTo
 							format
 						);
 					case TypeCategory.Struct:
-						return TryFromStruct(
-							value,
-							from,
-							to,
-							out result,
-							format
-						);
+						return TryFromStruct(value, from, to, out result, format);
 					case TypeCategory.Null:
 						return false;
 					case TypeCategory.Others:

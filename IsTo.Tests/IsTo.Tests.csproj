@@ -83,6 +83,7 @@
     <Compile Include="To\ToOfGenericToDateTime.cs" />
     <Compile Include="To\ToOfGenericToDecimal.cs" />
     <Compile Include="To\ToOfGenericToDouble.cs" />
+    <Compile Include="To\ToOfGenericToDynamic.cs" />
     <Compile Include="To\ToOfGenericToEnum.cs" />
     <Compile Include="To\ToOfGenericToInt16.cs" />
     <Compile Include="To\ToOfGenericToInt32.cs" />
