@@ -145,7 +145,9 @@ namespace IsTo
 					var genericTypes = type.GenericTypeArguments;
 					if(null != genericTypes) {
 						foreach(var genericType in genericTypes) {
-							ElementInfos.Add(new XInfo(genericType));
+							var info = new XInfo(genericType);
+							ElementInfos.Add(info);
+							IsBytes = info.Category == TypeCategory.Byte;
 						}
 					} else {
 						//
