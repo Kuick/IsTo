@@ -19,6 +19,10 @@ namespace IsTo
 
 			switch(to.Category) {
 				case TypeCategory.Array:
+					if(to.IsBytes) {
+						result = value.ToBinary().To<byte[]>();
+						return true;
+					}
 					return TryToArray(
 						from,
 						to,

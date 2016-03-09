@@ -401,6 +401,17 @@ namespace IsTo.Tests
 		}
 
 		[Fact]
+		public void FromDateTimeToByteArray()
+		{
+			var value = new DateTime(
+				1971, 8, 31, 11, 22, 33, 44
+			);
+			var result = value.To<byte[]>();
+			var expect = BitConverter.GetBytes(value.ToBinary());
+			Assert.True(result.SequenceEqual(expect));
+		}
+
+		[Fact]
 		public void FromBooleanToByteArray()
 		{
 			Boolean value = true;

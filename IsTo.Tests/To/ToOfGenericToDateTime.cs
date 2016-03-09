@@ -3,6 +3,7 @@
 // kevinjong        2016-02-11 - Creation
 
 using System;
+using System.Linq;
 using Xunit;
 
 namespace IsTo.Tests
@@ -79,8 +80,17 @@ namespace IsTo.Tests
 			var value = expect.ToBinary(); //621880825530440000L;
 			var result = value.To<DateTime>();
 			Assert.True(result == expect);
+		}
 
-
+		[Fact]
+		public void FromByteArray()
+		{
+			var value = new DateTime(
+				1971, 8, 31, 11, 22, 33, 44
+			);
+			var expect = BitConverter.GetBytes(value.ToBinary());
+			var result = value.To<byte[]>();
+			Assert.True(result.SequenceEqual(expect));
 		}
 	}
 }
