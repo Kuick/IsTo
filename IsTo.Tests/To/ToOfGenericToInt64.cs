@@ -93,9 +93,12 @@ namespace IsTo.Tests
 		[Fact]
 		public void FromDateTime()
 		{
-			var value = DateTime.Now;
-			Int64 flag;
-			Assert.False(value.TryTo<Int64>(out flag));
+			var value = new DateTime(
+				1971, 8, 31, 11, 22, 33, 44
+			);
+			var result = value.To<Int64>();
+			var expect = value.ToBinary(); //621880825530440000L;
+			Assert.True(result == expect);
 		}
 	}
 }

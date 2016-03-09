@@ -61,12 +61,26 @@ namespace IsTo.Tests
 		[InlineData(100F)]
 		[InlineData(100U)]
 		[InlineData(100UL)]
-		[InlineData(100L)]
 		public void NotSupport<T>(
 			T value)
 		{
 			DateTime dt;
 			Assert.False(value.TryTo<DateTime>(out dt));
+
+
+		}
+
+		[Fact]
+		public void FromInt64()
+		{
+			var expect = new DateTime(
+				1971, 8, 31, 11, 22, 33, 44
+			);
+			var value = expect.ToBinary(); //621880825530440000L;
+			var result = value.To<DateTime>();
+			Assert.True(result == expect);
+
+
 		}
 	}
 }

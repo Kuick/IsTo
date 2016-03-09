@@ -49,6 +49,10 @@ namespace IsTo
 					result = Convert.ToChar(value);
 					return true;
 
+				case TypeCategory.Int64:
+					result = value.ToBinary();
+					return true;
+
 				case TypeCategory.Decimal:
 				case TypeCategory.Byte:
 				case TypeCategory.SByte:
@@ -56,7 +60,6 @@ namespace IsTo
 				case TypeCategory.UInt16:
 				case TypeCategory.Int32:
 				case TypeCategory.UInt32:
-				case TypeCategory.Int64:
 				case TypeCategory.UInt64:
 				case TypeCategory.Single:
 				case TypeCategory.Double:

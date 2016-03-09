@@ -72,6 +72,10 @@ namespace IsTo
 						format
 					);
 
+				case TypeCategory.DateTime:
+					result = DateTime.FromBinary(value);
+					return true;
+
 				case TypeCategory.Decimal:
 					result = (Decimal)value;
 					return NumericCompare(value, result);
@@ -106,7 +110,6 @@ namespace IsTo
 				case TypeCategory.Interface:
 				case TypeCategory.Class:
 				case TypeCategory.Struct:
-				case TypeCategory.DateTime:
 				case TypeCategory.IntPtr:
 				case TypeCategory.UIntPtr:
 				case TypeCategory.Null:
