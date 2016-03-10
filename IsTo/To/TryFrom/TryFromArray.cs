@@ -33,12 +33,29 @@ namespace IsTo
 						format
 					);
 
+				case TypeCategory.DateTime:
+					if(from.IsBytes) {
+						if(bytes.Length == 8) {
+							result = bytes.To<Int64>().To<DateTime>();
+							return true;
+						} else {
+							var s = Encoding.Default.GetString(bytes);
+							return TryFromString(
+								s,
+								XInfo.String.Value,
+								to,
+								out result,
+								format
+							);
+						}
+					}
+					return false;
+
 				case TypeCategory.Enum:
 				case TypeCategory.Class:
 				case TypeCategory.Struct:
 				case TypeCategory.Stream:
 				case TypeCategory.Color:
-				case TypeCategory.DateTime:
 				case TypeCategory.String:
 					if(from.IsBytes) {
 						var str = Encoding.Default.GetString(bytes);
