@@ -54,6 +54,7 @@
     <Compile Include="Misc\IsToConfig.cs" />
     <Compile Include="Misc\IsToConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="To\ToCache.cs" />
     <Compile Include="To\ToExtender.cs" />
     <Compile Include="To\ToHelper.cs" />
     <Compile Include="To\TryFrom\TryFromArray.cs" />

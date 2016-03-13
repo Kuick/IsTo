@@ -54,7 +54,7 @@ namespace IsTo
 						var bytes = memoryStream.ToArray();
 						return TryFromArray(
 							bytes,
-							new XInfo(typeof(byte[])),
+							ToCache.Get(typeof(byte[])),
 							to,
 							out result,
 							format

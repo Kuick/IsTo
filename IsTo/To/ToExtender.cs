@@ -110,8 +110,8 @@ namespace IsTo
 			result = string.Empty;
 			if(null == value || null == type) { return false; }
 
-			var from = new XInfo(value);
-			var to = new XInfo(type);
+			var from = ToCache.Get(value);
+			var to = ToCache.Get(type);
 
 			try {
 				switch(from.Category) {

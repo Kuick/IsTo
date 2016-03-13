@@ -145,7 +145,7 @@ namespace IsTo
 					var genericTypes = type.GenericTypeArguments;
 					if(null != genericTypes) {
 						foreach(var genericType in genericTypes) {
-							var info = new XInfo(genericType);
+							var info = ToCache.Get(genericType);
 							ElementInfos.Add(info);
 							IsBytes = info.Category == TypeCategory.Byte;
 						}
@@ -153,7 +153,7 @@ namespace IsTo
 						//
 					}
 				} else {
-					var info = new XInfo(elementType);
+					var info = ToCache.Get(elementType);
 					ElementInfos.Add(info);
 					IsBytes = info.Category == TypeCategory.Byte;
 				}
@@ -187,46 +187,46 @@ namespace IsTo
 		}
 
 		internal static readonly Lazy<XInfo> String =
-			new Lazy<XInfo>(() => new XInfo(typeof(string)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(string)));
 		internal static readonly Lazy<XInfo> DateTime =
-			new Lazy<XInfo>(() => new XInfo(typeof(DateTime)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(DateTime)));
 		internal static readonly Lazy<XInfo> Decimal =
-			new Lazy<XInfo>(() => new XInfo(typeof(Decimal)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Decimal)));
 		internal static readonly Lazy<XInfo> Boolean =
-			new Lazy<XInfo>(() => new XInfo(typeof(Boolean)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Boolean)));
 		internal static readonly Lazy<XInfo> Char =
-			new Lazy<XInfo>(() => new XInfo(typeof(Char)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Char)));
 		internal static readonly Lazy<XInfo> Byte =
-			new Lazy<XInfo>(() => new XInfo(typeof(Byte)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Byte)));
 		internal static readonly Lazy<XInfo> SByte =
-			new Lazy<XInfo>(() => new XInfo(typeof(SByte)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(SByte)));
 		internal static readonly Lazy<XInfo> Int16 =
-			new Lazy<XInfo>(() => new XInfo(typeof(Int16)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Int16)));
 		internal static readonly Lazy<XInfo> UInt16 =
-			new Lazy<XInfo>(() => new XInfo(typeof(UInt16)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(UInt16)));
 		internal static readonly Lazy<XInfo> Int32 =
-			new Lazy<XInfo>(() => new XInfo(typeof(Int32)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Int32)));
 		internal static readonly Lazy<XInfo> UInt32 =
-			new Lazy<XInfo>(() => new XInfo(typeof(UInt32)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(UInt32)));
 		internal static readonly Lazy<XInfo> IntPtr =
-			new Lazy<XInfo>(() => new XInfo(typeof(IntPtr)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(IntPtr)));
 		internal static readonly Lazy<XInfo> UIntPtr =
-			new Lazy<XInfo>(() => new XInfo(typeof(UIntPtr)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(UIntPtr)));
 		internal static readonly Lazy<XInfo> Int64 =
-			new Lazy<XInfo>(() => new XInfo(typeof(Int64)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Int64)));
 		internal static readonly Lazy<XInfo> UInt64 =
-			new Lazy<XInfo>(() => new XInfo(typeof(UInt64)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(UInt64)));
 		internal static readonly Lazy<XInfo> Single =
-			new Lazy<XInfo>(() => new XInfo(typeof(Single)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Single)));
 		internal static readonly Lazy<XInfo> Double =
-			new Lazy<XInfo>(() => new XInfo(typeof(Double)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Double)));
 		internal static readonly Lazy<XInfo> Stream =
-			new Lazy<XInfo>(() => new XInfo(typeof(Stream)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Stream)));
 		internal static readonly Lazy<XInfo> Color =
-			new Lazy<XInfo>(() => new XInfo(typeof(Color)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Color)));
 		internal static readonly Lazy<XInfo> Array =
-			new Lazy<XInfo>(() => new XInfo(typeof(Array)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Array)));
 		internal static readonly Lazy<XInfo> Enum =
-			new Lazy<XInfo>(() => new XInfo(typeof(Enum)));
+			new Lazy<XInfo>(() => ToCache.Get(typeof(Enum)));
 	}
 }
