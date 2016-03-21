@@ -10,7 +10,7 @@ using System.IO;
 
 namespace IsTo
 {
-	public class XInfo
+	internal class XInfo
 	{
 		internal XInfo(object value)
 		{
