@@ -19,7 +19,7 @@ namespace IsTo
 
 			decimal decimalVal;
 			var decimalFlag = decimal.TryParse(
-				((int)value).ToString(), 
+				((int)value).ToString(),
 				out decimalVal
 			);
 
@@ -40,8 +40,12 @@ namespace IsTo
 					return false;
 
 				case TypeCategory.String:
-					result = value.ToString();
+					result = IsToConverter.FromEnum.ToString(
+						from.Type,
+						value
+					);
 					return true;
+
 				case TypeCategory.Stream:
 					return TryFromString(
 						value.ToString(),

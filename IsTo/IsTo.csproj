@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter\FromEnum.cs" />
     <Compile Include="Is\IsExtender.cs" />
     <Compile Include="Misc\IsToConfig.cs" />
     <Compile Include="Misc\IsToConstants.cs" />
+    <Compile Include="Converter\FromString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="To\ToCache.cs" />
     <Compile Include="To\ToHelper.cs" />

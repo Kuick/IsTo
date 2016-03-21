@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter\FromEnum.cs" />
+    <Compile Include="Converter\FromString.cs" />
     <Compile Include="Is\IsExtender.cs" />
     <Compile Include="Misc\IsToConfig.cs" />
     <Compile Include="Misc\IsToConstants.cs" />

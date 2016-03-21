@@ -106,7 +106,10 @@ namespace IsTo
 							return true;
 						}
 					} else {
-						result = Enum.Parse(to.Type, value);
+						result = IsToConverter.FromString.ToEnum(
+							to.Type, 
+							value
+						);
 						return true;
 					}
 					return false;

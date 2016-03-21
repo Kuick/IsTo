@@ -10,7 +10,7 @@ using System.IO;
 
 namespace IsTo
 {
-	internal class XInfo
+	public class XInfo
 	{
 		internal XInfo(object value)
 		{
@@ -160,14 +160,14 @@ namespace IsTo
 			}
 		}
 
-		internal bool IsNull { get; private set; }
-		internal Type Type { get; private set; }
-		internal string FullName { get; private set; }
-		internal bool IsValueType { get; private set; }
-		internal bool IsPrimitive { get; private set; }
-		internal TypeCategory Category { get; private set; }
-		internal List<XInfo> ElementInfos { get; private set; }
-		internal bool IsBytes { get; private set; }
+		public bool IsNull { get; private set; }
+		public Type Type { get; private set; }
+		public string FullName { get; private set; }
+		public bool IsValueType { get; private set; }
+		public bool IsPrimitive { get; private set; }
+		public TypeCategory Category { get; private set; }
+		public List<XInfo> ElementInfos { get; private set; }
+		public bool IsBytes { get; private set; }
 
 		public override int GetHashCode()
 		{

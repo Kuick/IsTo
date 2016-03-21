@@ -5,7 +5,7 @@
 
 namespace IsTo
 {
-	internal enum TypeCategory
+	public enum TypeCategory
 	{
 		Array,
 		Enum,
