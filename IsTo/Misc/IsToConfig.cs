@@ -36,6 +36,10 @@ namespace IsTo
 					return _TrueStringArray;
 				}
 			}
+			set
+			{
+				_TrueStringArray = value;
+			}
 		}
 
 		private static bool TrueStringArrayNullOrEmpty
