@@ -96,23 +96,11 @@ namespace IsTo
 					}
 
 				case TypeCategory.Enum:
-					if(decimalFlag) {
-						int enuInt;
-						if(decimalVal.TryTo<int>(out enuInt)) {
-							result = Enum.Parse(
-								to.Type,
-								enuInt.ToString()
-							);
-							return true;
-						}
-					} else {
-						result = IsToConverter.FromString.ToEnum(
-							to.Type, 
-							value
-						);
-						return true;
-					}
-					return false;
+					result = IsToConverter.FromString.ToEnum(
+						to.Type, 
+						value
+					);
+					return true;
 
 				case TypeCategory.Class:
 				case TypeCategory.Struct:
