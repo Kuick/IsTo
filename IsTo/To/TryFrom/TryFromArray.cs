@@ -39,7 +39,7 @@ namespace IsTo
 							result = bytes.To<Int64>().To<DateTime>();
 							return true;
 						} else {
-							var s = Encoding.Default.GetString(bytes);
+							var s = UnicodeEncoding.UTF8.GetString(bytes);
 							return TryFromString(
 								s,
 								XInfo.String.Value,
@@ -58,7 +58,7 @@ namespace IsTo
 				case TypeCategory.Color:
 				case TypeCategory.String:
 					if(from.IsBytes) {
-						var str = Encoding.Default.GetString(bytes);
+						var str = UnicodeEncoding.UTF8.GetString(bytes);
 						return TryFromString(
 							str,
 							XInfo.String.Value,
