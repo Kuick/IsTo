@@ -48,7 +48,7 @@ namespace IsTo
 			if(null == value) { return false; }
 
 			var str = value.ToString();
-			if(value.Is<string>() && IsJson(str)) {
+			if(IsJson(str)) {
 				var t = typeof(T);
 				if(!t.IsPrimitive && !t.Is<byte[]>()) {
 					try {
